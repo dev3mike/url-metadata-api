@@ -2,14 +2,13 @@
 
 ## Introduction
 
-The NestJS URL Metadata API is an open-source API that retrieves and returns metadata for a given URL. It uses a Base64 encoded URL as input and provides detailed metadata, including titles, descriptions, canonical URLs, favicons, Open Graph data, and more. The API also caches results for efficient performance and supports rate limiting to manage usage.
+The NestJS URL Metadata API is an open-source API that retrieves and returns metadata for a given URL. It uses a encoded URL as input and provides detailed metadata, including titles, descriptions, canonical URLs, favicons, Open Graph data, and more. The API also caches results for efficient performance and supports rate limiting to manage usage.
 
 This api is using https://www.npmjs.com/package/url-metadata to fetch data
 
 ## Features
 
 - **URL Metadata Retrieval:** Fetches detailed metadata for any given URL.
-- **Base64 URL Encoding:** The API accepts URLs in Base64 encoded format.
 - **Caching:** Responses are cached for 1 hour to improve performance and reduce redundant requests.
 - **Rate Limiting:** Limits each IP to 10 requests per hour to prevent abuse and manage resources efficiently.
 
@@ -17,12 +16,8 @@ This api is using https://www.npmjs.com/package/url-metadata to fetch data
 
 ### GET Request
 
-- **URL:** `GET domain.com/aHR0cHM6Ly95YWhvby5jb20=`
-- **Description:** Sends a GET request to retrieve metadata for the Base64 encoded URL.
-
-#### URL Parameters
-
-- **Base64 Encoded URL:** The URL for which metadata is to be retrieved should be Base64 encoded and appended to the API endpoint.
+- **URL:** `GET domain.com/https%3A%2F%2Fmedium.com`
+- **Description:** Sends a GET request to retrieve metadata for the encoded URL.
 
 ## Installation
 ### Clone the Repository:
@@ -46,8 +41,7 @@ The API will be running on http://localhost:3000.
 Use the specified endpoint to retrieve URL metadata.
 
 ### Usage
-Use any HTTP client or browser to send a GET request to the API endpoint with the Base64 encoded URL as the path.
-Ensure the URL is correctly Base64 encoded.
+Use any HTTP client or browser to send a GET request to the API endpoint with the encoded URL as the path.
 
 ### Caching and Rate Limiting
 Caching: The API caches the metadata response for each URL for 1 hour. This reduces repeated processing of the same URL and improves response time for frequently requested URLs.
@@ -63,9 +57,8 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 For any questions or support, please contact hej@masoudb.com.
 
 ### Example Request
-GET /aHR0cHM6Ly95YWhvby5jb20=
+GET /https%3A%2F%2Fyahoo.com
 
-This example corresponds to the Base64 encoded URL for https://yahoo.com.
 
 #### Example Response:
 ```json

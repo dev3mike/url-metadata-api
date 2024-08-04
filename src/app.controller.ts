@@ -10,11 +10,9 @@ export class AppController {
   constructor(
     private readonly metadata: MetadataService) { }
 
-  @Get(':base64EncodedUrl')
-  @CacheKey('getMetaData')
+  @Get(':url')
   @CacheTTL(3600) // 1 hour in seconds
-  async getMetaData(@Param('base64EncodedUrl') base64Url: string): Promise<urlMetadata.Result> {
-    const decodedUrl = Buffer.from(base64Url, 'base64').toString('utf-8');
-    return this.metadata.getUrlMetadata(decodedUrl);
+  async getMetaData(@Param('url') url: string): Promise<urlMetadata.Result> {
+    return this.metadata.getUrlMetadata(url);
   }
 }
