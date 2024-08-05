@@ -8,7 +8,7 @@ export class MetadataService {
             const metadata = await urlMetadata(url);
             return metadata;
         } catch (err) {
-            console.log(err);
+            console.error({ url, error: err });
             return { error: 'An error occurred while fetching metadata' };
         }
     }
